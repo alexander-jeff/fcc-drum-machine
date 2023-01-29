@@ -6,3 +6,9 @@ test('Renders outer container', () => {
   const outerContainer = screen.getByTestId('drum-machine')
   expect(outerContainer).toBeInTheDocument()
 })
+
+test('renders display container', () => {
+  render(<App />)
+  const displayContainer = screen.getByTestId('display')
+  expect(displayContainer).toBeInTheDocument()
+})
