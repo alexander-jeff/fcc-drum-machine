@@ -1,6 +1,11 @@
 import DrumPad from './DrumPad'
 
 const DrumPads = ({ drumConfig }) => {
+  const playSample = (src) => {
+    const audio = new Audio(src)
+    audio.play()
+  }
+
   return (
     <div
       data-testid='drum-pads'
@@ -9,6 +14,7 @@ const DrumPads = ({ drumConfig }) => {
       {drumConfig.map((drum) => (
         <DrumPad
           drum={drum}
+          handleClick={playSample}
           key={drum.id}
         ></DrumPad>
       ))}
