@@ -1,0 +1,23 @@
+#drum-pads {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.drum-pad {
+    width: 9vh;
+    height: 9vh;
+    margin: 10px;
+    background-color: yellow;
+    color: hotpink;
+    font-size: 1.5rem;
+    border: .2rem solid #ccf;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    padding: .3rem 0 0 1rem;
+}

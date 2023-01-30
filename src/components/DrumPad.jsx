@@ -1,11 +1,14 @@
-const DrumPad = ({ drum }) => {
+import './DrumPads.css'
+
+const DrumPad = ({ drum, handleClick }) => {
   const { id, letter, src } = drum
   return (
     <div
+      className='drum-pad'
       data-testid={id}
+      onClick={() => handleClick(src)}
       id={id}
       title={id.toString()}
-      className='drum-pad'
     >
       <audio
         className='clip'
