@@ -32,6 +32,11 @@ describe('Drum Machine', () => {
     const expectedClassName = 'drum-pad'
 
     drumConfigs.forEach((config, index) => {
+      const audio = drumPads[index].childNodes[0]
+      expect(audio.src).toBe(config.src)
+      expect(audio.id).toBe(config.letter)
+      expect(screen.queryByTestId(`audio-${config.letter}`)).toBeInTheDocument
+      expect(audio.className).toBe('clip')
       expect(drumPads[index].id).toBe(config.id)
       expect(drumPads[index]).toHaveTextContent(config.letter)
       expect(drumPads[index].className).toBe(expectedClassName)
@@ -42,6 +47,8 @@ describe('Drum Machine', () => {
   })
 
   test('has toggleable features', () => {
+    FEATURES.DRUM_PADS = false // disable drum pads
+    FEATURES.DISPLAY = false // disable display
     render(<App />)
     const underConstructionText = screen.getByText('Coming Soon')
     const displayContainer = screen.queryByTestId('display')
