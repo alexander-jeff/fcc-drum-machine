@@ -1,9 +1,23 @@
+import { useEffect } from 'react'
 import DrumPad from './DrumPad'
 
+function playSample(audioElementId) {
+  document.getElementById(audioElementId).play()
+}
+
 const DrumPads = ({ drumConfig }) => {
-  const playSample = (audioElementId) => {
-    document.getElementById(audioElementId).play()
-  }
+  useEffect(() => {
+    const onKeyPress = ({ key }) => {
+      const drum = drumConfig.find((drum) => drum.letter === key.toUpperCase())
+      drum && playSample(drum.letter)
+    }
+
+    // on mount
+    document.addEventListener('keydown', onKeyPress)
+
+    // on unmount
+    return () => document.removeEventListener('keydown', onKeyPress)
+  }, [drumConfig])
 
   return (
     <div

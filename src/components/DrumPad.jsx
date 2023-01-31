@@ -1,25 +1,13 @@
-import { useEffect } from 'react'
 import './DrumPads.css'
 
 const DrumPad = ({ drum, handleClick }) => {
   const { id, letter, src } = drum
-  useEffect(() => {
-    const onKeyPress = ({ key }) => {
-      key.toUpperCase() === letter && handleClick(letter)
-    }
-
-    // on mount
-    document.addEventListener('keydown', onKeyPress)
-
-    // on unmount
-    return () => document.removeEventListener('keydown', onKeyPress)
-  }, [handleClick, letter])
   return (
     <div
       className='drum-pad'
       data-testid={id}
-      onClick={() => handleClick(letter)}
       id={id}
+      onClick={() => handleClick(letter)}
       title={id.toString()}
     >
       <audio
