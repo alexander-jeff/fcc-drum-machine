@@ -51,6 +51,6 @@ export const defaultDisplayText = 'Click or press a key to play a sound'
 export const underConstructionText = 'Coming Soon'
 
 export const FEATURES = {
-  DISPLAY: false,
-  DRUM_PADS: false,
+  DISPLAY: true,
+  DRUM_PADS: true,
 }
