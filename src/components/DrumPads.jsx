@@ -1,9 +1,8 @@
 import DrumPad from './DrumPad'
 
 const DrumPads = ({ drumConfig }) => {
-  const playSample = (src) => {
-    const audio = new Audio(src)
-    audio.play()
+  const playSample = (audioElementId) => {
+    document.getElementById(audioElementId).play()
   }
 
   return (

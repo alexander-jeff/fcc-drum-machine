@@ -6,15 +6,15 @@ const DrumPad = ({ drum, handleClick }) => {
     <div
       className='drum-pad'
       data-testid={id}
-      onClick={() => handleClick(src)}
+      onClick={() => handleClick(letter)}
       id={id}
       title={id.toString()}
     >
       <audio
         className='clip'
-        data-testid={`audio-${letter}`}
         id={letter}
         src={src}
+        data-testid={`audio-${letter}`}
       ></audio>
       {letter}
     </div>

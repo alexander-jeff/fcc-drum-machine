@@ -33,9 +33,10 @@ describe('Drum Machine', () => {
 
     drumConfigs.forEach((config, index) => {
       const audio = drumPads[index].childNodes[0]
+      const audioElement = screen.getByTestId(`audio-${config.letter}`)
       expect(audio.src).toBe(config.src)
       expect(audio.id).toBe(config.letter)
-      expect(screen.queryByTestId(`audio-${config.letter}`)).toBeInTheDocument
+      expect(audioElement).toBeInTheDocument()
       expect(audio.className).toBe('clip')
       expect(drumPads[index].id).toBe(config.id)
       expect(drumPads[index]).toHaveTextContent(config.letter)
