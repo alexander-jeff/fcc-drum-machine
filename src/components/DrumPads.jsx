@@ -1,15 +1,13 @@
 import { useEffect } from 'react'
 import DrumPad from './DrumPad'
 
-function playSample(audioElementId) {
-  document.getElementById(audioElementId).play()
-}
+import { playSample } from '../resources/functions'
 
 const DrumPads = ({ drumConfig }) => {
   useEffect(() => {
     const onKeyPress = ({ key }) => {
       const drum = drumConfig.find((drum) => drum.letter === key.toUpperCase())
-      drum && playSample(drum.letter)
+      drum && playSample(drum.letter, drum.id)
     }
 
     // on mount

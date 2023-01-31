@@ -7,7 +7,7 @@ const DrumPad = ({ drum, handleClick }) => {
       className='drum-pad'
       data-testid={id}
       id={id}
-      onClick={() => handleClick(letter)}
+      onClick={() => handleClick(letter, id)}
       title={id.toString()}
     >
       <audio
